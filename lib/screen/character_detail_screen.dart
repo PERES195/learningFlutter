@@ -11,7 +11,7 @@ class CharacterDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final name = character.name;
     final description = character.description;
-    final imageUrl = character.getThumbnailUrl();
+    final imageUrl = character.getImageUrl();
     final comics = createComicsList(character.comics);
     return CharacterPage(
       name: name,

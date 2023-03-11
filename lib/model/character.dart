@@ -14,6 +14,10 @@ class Character {
   String getThumbnailUrl() {
     return "${thumbnail.path}/standard_fantastic." "${thumbnail.extension}";
   }
+
+  String getImageUrl() {
+    return "${thumbnail.path}/detail." "${thumbnail.extension}";
+  }
 }
 
 class Thumbnail {

@@ -44,9 +44,12 @@ class _MarvelHomeScreenState extends State<MarvelHomeScreen> {
 
   Scaffold _createScaffold() {
     return Scaffold(
+      backgroundColor: Colors.grey[500],
       appBar: AppBar(
-        title: const Text('Marvel API App'),
+        title: Image.asset('assets/Marvel_Logo.png', width: 300, height: 125),
+        centerTitle: true,
         backgroundColor: Colors.black54,
+        toolbarHeight: 150.0,
       ),
       body: ChangeNotifierProvider<CharacterListViewModel>(
         create: (BuildContext context) => viewModel,
