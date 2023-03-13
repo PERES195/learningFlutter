@@ -25,8 +25,8 @@ class CharacterDetailScreen extends StatelessWidget {
     List<String> comicsList = [];
     var shownComicsLength = 0;
 
-    if (comics.length >= 5) {
-      shownComicsLength = 5;
+    if (comics.length >= 20) {
+      shownComicsLength = 20;
     } else {
       shownComicsLength = comics.length;
     }

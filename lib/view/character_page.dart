@@ -43,7 +43,8 @@ class CharacterPage extends StatelessWidget {
                             style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 24.0,
-                                fontWeight: FontWeight.bold)),
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1.0,)),
                       )),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -60,7 +61,9 @@ class CharacterPage extends StatelessWidget {
                       description,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                          fontSize: 16.0, fontStyle: FontStyle.italic),
+                          fontSize: 16.0,
+                          fontStyle: FontStyle.italic,
+                          height: 1.5),
                     ),
                   ),
                   const Divider(
@@ -75,7 +78,8 @@ class CharacterPage extends StatelessWidget {
                         "Suggested Comics: ",
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            fontSize: 20.0,),
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold),
                       )),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -97,7 +101,8 @@ class CharacterPage extends StatelessWidget {
                               child: Text(
                                 comic,
                                 style: const TextStyle(
-                                    fontSize: 16, fontFamily: 'Avenir Next'),
+                                    fontSize: 16,
+                                    height: 1.5),
                               ), //text
                             )
                           ]),
