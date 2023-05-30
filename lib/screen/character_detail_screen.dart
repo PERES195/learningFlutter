@@ -13,11 +13,13 @@ class CharacterDetailScreen extends StatelessWidget {
     final description = character.description;
     final imageUrl = character.getImageUrl();
     final comics = createComicsList(character.comics);
+    final comicUrl = getComicUrl(character.urls);
     return CharacterPage(
       name: name,
       description: description,
       image: imageUrl,
       comics: comics,
+      url: comicUrl
     );
   }
 
@@ -34,5 +36,16 @@ class CharacterDetailScreen extends StatelessWidget {
       comicsList.add(comics[i].name);
     }
     return comicsList;
+  }
+
+  CharacterUrl? getComicUrl(List<CharacterUrl> urls) {
+    Map<String, List<CharacterUrl>> urlMap = {};
+
+    for (CharacterUrl url in urls) {
+      urlMap.putIfAbsent(url.type, () => []).add(url);
+    }
+    print(urlMap['comiclink']);
+    return urlMap['comiclink']?.first;
+
   }
 }

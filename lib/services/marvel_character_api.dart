@@ -30,12 +30,19 @@ class MarvelCharacterAPI {
                     ComicItem.fromJson(comicsData as Map<String, dynamic>))
                 .toList()
             : <ComicItem>[];
-
+        final urlsList = character['urls'] as List<dynamic>;
+        final urls = urlsList != null
+            ? urlsList
+              .map((urlsList) =>
+                  CharacterUrl.fromJson(urlsList as Map<String, dynamic>))
+              .toList()
+            : <CharacterUrl>[];
         return Character(
           name: character['name'],
           description: character['description'],
           thumbnail: thumbnail,
           comics: comics,
+          urls: urls
         );
       }).toList();
       return marvelDataList;

@@ -3,12 +3,14 @@ class Character {
   final String description;
   final Thumbnail thumbnail;
   final List<ComicItem> comics;
+  final List<CharacterUrl> urls;
 
   Character({
     required this.name,
     required this.description,
     required this.thumbnail,
-    required this.comics
+    required this.comics,
+    required this.urls
   });
 
   String getThumbnailUrl() {
@@ -52,5 +54,22 @@ class ComicItem {
     final name = data['name'] as String;
 
     return ComicItem(resourceURI: resourceURI, name: name);
+  }
+}
+
+class CharacterUrl {
+  final String type;
+  final String url;
+
+  CharacterUrl({
+    required this.type,
+    required this.url
+  });
+
+  factory CharacterUrl.fromJson(Map<String, dynamic> data) {
+    final type = data['type'] as String;
+    final url = data['url'] as String;
+
+    return CharacterUrl(type: type, url: url);
   }
 }

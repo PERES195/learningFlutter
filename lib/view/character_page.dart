@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
+
+import '../model/character.dart';
 
 class CharacterPage extends StatelessWidget {
   final String name;
   final String description;
   final String image;
   final List<String> comics;
+  final CharacterUrl? url;
 
   const CharacterPage({
     required this.name,
     required this.description,
     required this.image,
     required this.comics,
+    required this.url
   });
 
   @override
@@ -72,17 +77,37 @@ class CharacterPage extends StatelessWidget {
                     indent: 10.0,
                     endIndent: 10.0,
                   ),
-                  const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        "Suggested Comics: ",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold),
-                      )),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "Suggested Comics: ",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold),
+                            )
+                        ),
+                        // GestureDetector(
+                        //   child: const Icon(
+                        //     Icons.share_outlined,
+                        //     color: Colors.black54,
+                        //     size: 25.0,
+                        //   ),
+                        // ),
+                        IconButton(
+                            onPressed: sharePressed,
+                            icon: const Icon(
+                              Icons.share_outlined,
+                              color: Colors.black54,
+                            )
+                        )
+                    ]
+                  ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(18.0),
                     child: Column(
                       children: comics.map((comic) {
                         return Padding(
@@ -118,4 +143,12 @@ class CharacterPage extends StatelessWidget {
       ),
     );
   }
+
+  void sharePressed() {
+      String? comicUrl = url?.url;
+      String message = 'Check out comics about $name here: $comicUrl';
+
+      Share.share(message);
+  }
+
 }
